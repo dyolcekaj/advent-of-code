@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-const fileName = "day2/input.txt"
+const fileName = "cmd/day2/input.txt"
 
 func main() {
 	lines, err := files.ReadInts(fileName)

@@ -56,6 +56,20 @@ func ReadLines(fileName string) ([]string, error) {
 	return lines, scanner.Err()
 }
 
+func ReadRunes(fileName string) ([][]rune, error) {
+	lines, err := ReadLines(fileName)
+	if err != nil {
+		return nil, err
+	}
+
+	data := make([][]rune, 0, len(lines))
+	for _, line := range lines {
+		data = append(data, []rune(line))
+	}
+
+	return data, nil
+}
+
 func ForEachLine(fileName string, fn func(line string)) error {
 	f, err := os.Open(fileName)
 	if err != nil {
