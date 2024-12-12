@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/files"
 	"time"
+
+	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/files"
 )
 
 const fileName = "cmd/day2/input.txt"

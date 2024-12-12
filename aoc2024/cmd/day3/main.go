@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/day3"
 	"os"
+
+	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/day3"
 )
 
 func main() {

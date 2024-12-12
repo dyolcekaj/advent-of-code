@@ -1,8 +1,9 @@
 package day3_test
 
 import (
-	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/day3"
 	"testing"
+
+	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/day3"
 )
 
 func TestPartOne(t *testing.T) {

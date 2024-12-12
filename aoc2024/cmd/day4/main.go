@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/day4"
 	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/files"
 )
