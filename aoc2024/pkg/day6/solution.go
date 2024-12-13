@@ -65,7 +65,7 @@ func PartTwo(grid [][]rune) int {
 }
 
 func getPathFromStart(grid [][]rune) ([]vector, bool) {
-	return getPath(findGuardStartingPosition(grid), grid)
+	return getPath(findStartPosition(grid), grid)
 }
 
 func getPath(v vector, grid [][]rune) ([]vector, bool) {
@@ -89,46 +89,6 @@ func getPath(v vector, grid [][]rune) ([]vector, bool) {
 	return path, true
 }
 
-func canMakeLoop(v vector, grid [][]rune) bool {
-	barrier := step(v)
-
-	// on the edge of grid, can't place barrier
-	if !valid(barrier.x, barrier.y, grid) {
-		return false
-	}
-
-	// can't place a barrier here because it's already a barrier or start
-	if grid[barrier.x][barrier.y] != '.' {
-		return false
-	}
-
-	// to avoid muddying the input seen map
-	seen := make(map[vector]struct{})
-
-	grid[barrier.x][barrier.y] = '#'
-	defer func() {
-		grid[barrier.x][barrier.y] = '.'
-	}()
-
-	for valid(v.x, v.y, grid) {
-		if _, ok := seen[v]; ok {
-			// fmt.Printf("%d,%d\n", bx, by)
-			return true
-		}
-
-		seen[v] = struct{}{}
-
-		s := step(v)
-		if valid(s.x, s.y, grid) && grid[s.x][s.y] == '#' {
-			v = rotate(v)
-		} else {
-			v = s
-		}
-	}
-
-	return false
-}
-
 func step(v vector) vector {
 	return vector{v.x + v.dx, v.y + v.dy, v.dx, v.dy}
 }
@@ -145,7 +105,7 @@ func bc(i, max int) bool {
 	return i >= 0 && i < max
 }
 
-func findGuardStartingPosition(grid [][]rune) vector {
+func findStartPosition(grid [][]rune) vector {
 	for i := 0; i < len(grid); i++ {
 		for j := 0; j < len(grid[i]); j++ {
 			switch grid[i][j] {
