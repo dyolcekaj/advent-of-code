@@ -7,7 +7,7 @@ import (
 	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/files"
 )
 
-const fileName = "cmd/day2/input.txt"
+const fileName = "cmd/day02/input.txt"
 
 func main() {
 	lines, err := files.ReadInts(fileName)

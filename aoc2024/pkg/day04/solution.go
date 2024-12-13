@@ -1,4 +1,4 @@
-package day4
+package day04
 
 import (
 	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/timer"
@@ -25,7 +25,7 @@ var (
 )
 
 func PartOne(puzzle [][]rune) int {
-	defer timer.Time("day4.PartOne")()
+	defer timer.Time("day04.PartOne")()
 
 	count := 0
 
@@ -55,7 +55,7 @@ func countXMAS(puzzle [][]rune, i int, j int) int {
 }
 
 func PartTwo(puzzle [][]rune) int {
-	defer timer.Time("day4.PartTwo")()
+	defer timer.Time("day04.PartTwo")()
 
 	count := 0
 

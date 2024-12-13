@@ -5,19 +5,19 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/day5"
+	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/day05"
 	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/files"
 )
 
 const (
-	fileName = "cmd/day5/input.txt"
+	fileName = "cmd/day05/input.txt"
 )
 
 func main() {
 	rules, pages := parseInput()
 
-	fmt.Printf("PartOne: %d\n", day5.PartOne(rules, pages))
-	fmt.Printf("PartTwo: %d\n", day5.PartTwo(rules, pages))
+	fmt.Printf("PartOne: %d\n", day05.PartOne(rules, pages))
+	fmt.Printf("PartTwo: %d\n", day05.PartTwo(rules, pages))
 }
 
 func parseInput() ([][]int, [][]int) {

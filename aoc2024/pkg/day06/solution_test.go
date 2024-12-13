@@ -1,10 +1,10 @@
-package day6_test
+package day06_test
 
 import (
 	"strings"
 	"testing"
 
-	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/day6"
+	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/day06"
 	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/files"
 )
 
@@ -43,7 +43,7 @@ func TestPartOne(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			got := day6.PartOne(input)
+			got := day06.PartOne(input)
 			if got != tc.want {
 				t.Errorf("got %d, want %d", got, tc.want)
 			}
@@ -84,7 +84,7 @@ func TestPartTwo(t *testing.T) {
 				t.Fatal(err)
 			}
 
-			got := day6.PartTwo(input)
+			got := day06.PartTwo(input)
 			if got != tc.want {
 				t.Errorf("got %d, want %d", got, tc.want)
 			}

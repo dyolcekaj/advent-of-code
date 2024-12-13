@@ -1,9 +1,9 @@
-package day5_test
+package day05_test
 
 import (
 	"testing"
 
-	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/day5"
+	"github.com/dyolcekaj/advent-of-code/aoc2024/pkg/day05"
 )
 
 func TestPartOne(t *testing.T) {
@@ -41,7 +41,7 @@ func TestPartOne(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 
-			got := day5.PartOne(tc.rules, tc.pages)
+			got := day05.PartOne(tc.rules, tc.pages)
 			if got != tc.want {
 				t.Errorf("got %d; want %d", got, tc.want)
 			}
@@ -84,7 +84,7 @@ func TestPartTwo(t *testing.T) {
 		t.Run(tc.name, func(t *testing.T) {
 			t.Parallel()
 
-			got := day5.PartTwo(tc.rules, tc.pages)
+			got := day05.PartTwo(tc.rules, tc.pages)
 			if got != tc.want {
 				t.Errorf("got %d; want %d", got, tc.want)
 			}
