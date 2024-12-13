@@ -1,8 +1,9 @@
 package day5
 
 import (
-	"slices"
 	"sort"
+
+	"slices"
 )
 
 func PartOne(rules [][]int, pages [][]int) int {

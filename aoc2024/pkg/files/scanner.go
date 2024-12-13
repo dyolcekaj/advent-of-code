@@ -2,6 +2,7 @@ package files
 
 import (
 	"bufio"
+	"io"
 	"os"
 	"strconv"
 	"strings"
@@ -39,15 +40,19 @@ func ReadInts(fileName string) ([][]int, error) {
 }
 
 func ReadLines(fileName string) ([]string, error) {
-	var lines []string
-
 	f, err := os.Open(fileName)
 	if err != nil {
-		return lines, err
+		return nil, err
 	}
 	defer f.Close()
 
-	scanner := bufio.NewScanner(f)
+	return readLines(f)
+}
+
+func readLines(reader io.Reader) ([]string, error) {
+	var lines []string
+
+	scanner := bufio.NewScanner(reader)
 
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
@@ -57,12 +62,23 @@ func ReadLines(fileName string) ([]string, error) {
 }
 
 func ReadRunes(fileName string) ([][]rune, error) {
-	lines, err := ReadLines(fileName)
+	f, err := os.Open(fileName)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+
+	return ReadRunesFromReader(f)
+}
+
+func ReadRunesFromReader(reader io.Reader) ([][]rune, error) {
+	lines, err := readLines(reader)
 	if err != nil {
 		return nil, err
 	}
 
 	data := make([][]rune, 0, len(lines))
+
 	for _, line := range lines {
 		data = append(data, []rune(line))
 	}
