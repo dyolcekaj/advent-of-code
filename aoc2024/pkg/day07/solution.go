@@ -9,7 +9,7 @@ func PartOne(results []int, equations [][]int) int {
 	result := 0
 
 	for i := 0; i < len(results); i++ {
-		if hasSolution(results[i], equations[i], []op{add, mul}) {
+		if PartOneSingle(results[i], equations[i]) {
 			result += results[i]
 		}
 	}
@@ -18,7 +18,7 @@ func PartOne(results []int, equations [][]int) int {
 }
 
 func PartOneSingle(result int, equation []int) bool {
-	return hasSolution(result, equation, []op{add, mul})
+	return backtrack(result, equation[0], 1, equation, []op{mul, add})
 }
 
 func PartTwo(results []int, equations [][]int) int {
@@ -34,20 +34,12 @@ func PartTwo(results []int, equations [][]int) int {
 }
 
 func PartTwoSingle(result int, equation []int) bool {
-	return hasSolution(result, equation, []op{add, mul, concat})
-}
-
-func hasSolution(result int, equation []int, ops []op) bool {
-	return backtrack(result, equation[0], 1, equation, ops)
+	return backtrack(result, equation[0], 1, equation, []op{mul, add, concat})
 }
 
 func backtrack(result, curr, idx int, equation []int, ops []op) bool {
 	if idx >= len(equation) {
 		return curr == result
-	}
-
-	if curr >= result {
-		return false
 	}
 
 	for _, operation := range ops {
@@ -74,13 +66,9 @@ func concat(a, b int) int {
 }
 
 func padding(i int) int {
-	if i <= 1 {
-		return 10
-	}
+	p := 10
 
-	p := 1
-
-	for p < i {
+	for p <= i {
 		p *= 10
 	}
 
