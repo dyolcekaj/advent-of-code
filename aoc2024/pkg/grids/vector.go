@@ -1,11 +1,11 @@
 package grids
 
-type Point struct {
+type Point2 struct {
 	X, Y int
 }
 
-func P(x, y int) Point {
-	return Point{X: x, Y: y}
+func P2(x, y int) Point2 {
+	return Point2{X: x, Y: y}
 }
 
 type Vec2 struct {
